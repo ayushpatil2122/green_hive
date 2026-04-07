@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ram Green Hive Plus - Pune</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --green: #0a9d6e;
+      --dark: #0f1c15;
+      --light-green: #e0f5eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f9fa;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      background: var(--green);
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(10, 157, 110, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(10, 157, 110, 0.4);
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+      animation: fadeUp 1.2s ease-out;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 62px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--dark);
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: var(--green);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(10, 157, 110, 0.15);
+    }
+
+    .card h3 {
+      color: var(--green);
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Amenities */
+    .amenities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .amenity-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: white;
+      padding: 18px 24px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .amenity-item span {
+      font-size: 28px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #0a9d6e, #0f6b4d);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      margin: 80px 8%;
+      padding: 80px 40px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ddd;
+      padding: 60px 8% 30px;
+      text-align: center;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 2000;
+    }
+
+    .popup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px 35px;
+      border-radius: 24px;
+      width: 380px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .form-box input:focus, .form-box select:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(10, 157, 110, 0.1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 48px; }
+      .hero p { font-size: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Ram <span>Green</span> Hive Plus</div>
+    <button class="btn" onclick="openForm()">Enquire Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Live Green.<br>Live Smart.</h1>
+      <p>Premium 1 & 2 BHK Homes in Phursungi, Pune</p>
+      <button class="btn" onclick="openForm()" style="font-size:18px; padding:16px 36px;">Download Brochure</button>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 class="section-title">Project Overview</h2>
+    <p style="max-width:900px; margin:0 auto 50px; text-align:center; font-size:18px; color:#555;">
+      Ram Green Hive Plus brings together nature, luxury, and smart living in Pune’s most promising growth corridor. 
+      Spread across 14.6 acres with 40% open green space, this project offers 1284 thoughtfully designed homes.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>18 Towers</h3>
+        <p>Stunning modern architecture</p>
+      </div>
+      <div class="card">
+        <h3>1284 Homes</h3>
+        <p>1 & 2 BHK configurations</p>
+      </div>
+      <div class="card">
+        <h3>14.6 Acres</h3>
+        <p>Expansive green campus</p>
+      </div>
+      <div class="card">
+        <h3>40% Open Space</h3>
+        <p>Abundant greenery & fresh air</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section style="background:#f8f9fa;">
+    <h2 class="section-title">Why Green Hive Plus?</h2>
+    <div class="grid">
+      <div class="card">🌱 Eco-Friendly Design</div>
+      <div class="card">🚀 High Appreciation Potential</div>
+      <div class="card">🏗️ Ready Infrastructure</div>
+      <div class="card">📍 Strategic Location</div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <h2 class="section-title">Project Gallery</h2>
+    <div class="gallery grid">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Luxury Living">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Modern Interior">
+      <img src="https://images.unsplash.com/photo-1600047509358-9dc75507daeb" alt="Swimming Pool">
+      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811" alt="Club House">
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section>
+    <h2 class="section-title">Pricing</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1 BHK</h3>
+        <p style="font-size:18px; margin:10px 0;">493 sq.ft</p>
+        <p style="font-size:28px; font-weight:600; color:var(--green);">₹46.69 Lakh Onwards</p>
+      </div>
+      <div class="card">
+        <h3>2 BHK</h3>
+        <p style="font-size:18px; margin:10px 0;">653 – 805 sq.ft</p>
+        <p style="font-size:28px; font-weight:600; color:var(--green);">₹58 – 76.49 Lakh</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section>
+    <h2 class="section-title">World-Class Amenities</h2>
+    <div class="amenities">
+      <div class="amenity-item"><span>🏊</span> Swimming Pool</div>
+      <div class="amenity-item"><span>🏋️</span> Gymnasium</div>
+      <div class="amenity-item"><span>🏠</span> Club House</div>
+      <div class="amenity-item"><span>🌳</span> Kids Play Area</div>
+      <div class="amenity-item"><span>⚡</span> EV Charging Stations</div>
+      <div class="amenity-item"><span>🏃</span> Jogging Track</div>
+      <div class="amenity-item"><span>🧘</span> Yoga & Meditation Deck</div>
+      <div class="amenity-item"><span>🎮</span> Indoor Games Zone</div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section style="background:#f8f9fa;">
+    <h2 class="section-title">Prime Location Advantages</h2>
+    <div class="grid">
+      <div class="card">📍 Phursungi IT Park – 3.7 km</div>
+      <div class="card">🏫 Top Schools & Colleges – 5 km</div>
+      <div class="card">🏥 Noble Hospital – 5.3 km</div>
+      <div class="card">🛣️ Hadapsar in just 15 mins</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 style="font-size:42px; margin-bottom:20px;">Ready to Own Your Green Home?</h2>
+    <p style="font-size:20px; opacity:0.9;">Limited units available. Exclusive launch offers ending soon.</p>
+    <br><br>
+    <button class="btn" onclick="openForm()" style="background:white; color:#0a9d6e; font-size:19px; padding:18px 40px;">
+      Request a Callback
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>RERA No:</strong> P521000XXXXX</p>
+    <p style="margin-top:15px;">© 2026 Ram India Shelters Pvt. Ltd. | All Rights Reserved</p>
+  </footer>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="form-box">
+      <span class="close" onclick="closeForm()">×</span>
+      <h3 style="text-align:center; margin-bottom:25px; font-size:26px;">Enquire Now</h3>
+      
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      
+      <select>
+        <option value="">Select Configuration</option>
+        <option>1 BHK</option>
+        <option>2 BHK</option>
+      </select>
+
+      <button class="btn" style="width:100%; margin-top:10px;">Submit Enquiry</button>
+    </div>
+  </div>
+
+  <script>
+    // Auto popup after 4 seconds
+    setTimeout(() => {
+      document.getElementById("popup").classList.add("active");
+    }, 4500);
+
+    function openForm() {
+      document.getElementById("popup").classList.add("active");
+    }
+
+    function closeForm() {
+      document.getElementById("popup").classList.remove("active");
+    }
+
+    // Close popup when clicking outside
+    document.getElementById("popup").addEventListener("click", function(e) {
+      if (e.target === this) closeForm();
+    });
+  </script>
+</body>
+</html>
